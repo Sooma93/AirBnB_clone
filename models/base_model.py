@@ -6,6 +6,7 @@ import uuid
 from datetime import datetime
 from models import storage
 
+
 class BaseModel:
     """
     the class which all class inhernt
@@ -29,3 +30,26 @@ class BaseModel:
             self.created_at = datetime.now()
             self.updated_at = datetime.now()
             storage.new(self)
+
+    def __str__(self):
+        """
+        return string
+        """
+        return "[{}] ({}) {}".format(type(self).__name__, self.id, self.__dict__)
+
+    def save(self):
+        """
+        updates the public instance attribute updated_at with datetime
+        """
+        self.updated_at = datetime.now()
+        storage.save()
+
+    def to_dict(self):
+        """
+         returns a dictionary containing all keys/values
+        """
+        d_dic = self.__dict__.copy()
+        d_dic["__class__"] = type(self).__name__
+        d_dic["created_at"] = d_dic["created_at"].isoformat()
+        d_dic["updated_at"] = d_dic["updated_at"].isoformat()
+        return d_dic
