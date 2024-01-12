@@ -39,5 +39,27 @@ class FileStorage:
             json.dump(d, f)
 
 
-    def 
+    def classes(self):
+        """
+        return the refrencess of clasess
+        """
+        from models.base_model import BaseModel
+        from models.User import User
+
+        classes = {"BaseModel": BaseModel,
+                "User": User,
+
+
+    def reload(self):
+        """
+        deserializes the JSON file to
+        """
+        if not os.path.isfile(FileStorage.__file_path):
+            return
+        with open(FileStorage.__file_path, "r", encoding="utf-8") as f:
+            obj_d = json.load(f)
+            obj_d = {k: self.classes()[v["__class__"]](**v)
+                    for k, v in obj_d.items()}
+            FileStorage.__objects = obj_d
+        
 
