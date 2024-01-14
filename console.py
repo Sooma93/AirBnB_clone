@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """
 HBNBCommand - Entry Point for the Command Interpreter
-More talk
+And More
 """
 
 
