@@ -5,7 +5,7 @@ delete the database, The users like the administrator of,
 The app Airbnb clone has the posibility of the manipulate objects,
 and data of the application,
 
-__This objects are: __
+**This objects are:**
 
 * User
 * Places
@@ -28,13 +28,13 @@ __This objects are: __
 * FileStorage: models/engine/file_storage.py
 * engine.init: models/engine/init.py
 
-**How To run the command interpreter: **
+**How To run the command interpreter:**
 
 $ ./console.py
 
 # Examples
 
-**Interactive mode: **
+**Interactive mode:**
 
 
 ```$ ./console.py
@@ -50,7 +50,7 @@ EOF  help  quit
 $
 ```
 
-**Non-interactive mode: **
+**Non-interactive mode:**
 
 
 ```$ echo "help" | ./console.py
@@ -66,7 +66,7 @@ $
 $ cat test_help | ./console.py
 (hbnb)
 Documented commands(type help < topic >):
-	= = = = = = = = = = = = = = = = = = = =
+= = = = = = = = = = = = = = = = = = = =
 EOF  help  quit
 (hbnb)
 $
