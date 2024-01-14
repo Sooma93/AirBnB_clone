@@ -63,10 +63,9 @@ class FileStorage:
         """
         if not os.path.isfile(FileStorage.__file_path):
             return
-        with open(FileStorage.__file_path, "r", encoding="utf-8") as f:
+        with open(FileStorage.__file_path, "r") as f:
             obj_d = json.load(f)
-            obj_d = {k: self.classes()[v["__class__"]](
-                **v) for k, v in obj_d.items()}
+            obj_d = {k: self.classes()[v["__class__"]](**v) for k, v in obj_d.items()}
             FileStorage.__objects = obj_d
 
     def attributes(self):
