@@ -40,7 +40,7 @@ class TestBaseModel_instantiation(unittest.TestCase):
         bs = BaseModel(None)
         self.assertNotIn(None, bs.__dict__.values())
 
-           def test_two_models_unique_ids(self):
+    def test_two_models_unique_ids(self):
         """Test that two instances of
           BaseModel have different ids."""
         bm1 = BaseModel()
@@ -76,7 +76,7 @@ class TestBaseModel_instantiation(unittest.TestCase):
         self.assertIn("'created_at': " + dt_repr, bmstr)
         self.assertIn("'updated_at': " + dt_repr, bmstr)
 
-         def test_instantiation_with_kwargs(self):
+    def test_instantiation_with_kwargs(self):
         """Test that BaseModel instantiates with keyword arguments."""
         dt = datetime.today()
         dt_iso = dt.isoformat()
@@ -169,7 +169,7 @@ class TestBaseModel_to_dict(unittest.TestCase):
         self.assertIn("updated_at", bm.to_dict())
         self.assertIn("__class__", bm.to_dict())
 
-         def test_to_dict_contains_added_attributes(self):
+    def test_to_dict_contains_added_attributes(self):
         """Test that the to_dict method of BaseModel returns
           a dictionary that includes added attributes."""
         bm = BaseModel()
