@@ -41,7 +41,7 @@ class HBNBCommand(cmd.Cmd):
         elif line not in HBNBCommand.classes:
             print("** class doesn't exist **")
         else:
-            instance = eval[line]()
+            instance = eval[input_line]()
             instance.save()
             print(instance.id)
 
@@ -50,28 +50,28 @@ class HBNBCommand(cmd.Cmd):
         if not ():
             print("** class name missing **")
         else:
-            line = line.split()
-            if len(line) != 2:
+            input_line = line.split()
+            if len(input_line) != 2:
                 print("** instance id missing **")
-            elif line[0] not in classes:
+            elif input_line[0] not in classes:
                 print("** class doesn't exist **")
             else:
                 for k, v in storage.all().items():
-                    if line[1] == v.id:
+                    if input_line[1] == v.id:
                         print(v)
                         return
                 print("** no instance found **")
 
     def do_destroy(self, line):
         """ Deletes an instance based on the class name and id """
-        line = line.split()
-        if not line:
+        input_line = input_line.split()
+        if not input_line:
             print("** class name missing **")
             return
-        elif len(line) < 2:
+        elif len(input_line) < 2:
             print("** instance id missing **")
             return
-        if line[0] not in classes:
+        if input_line[0] not in classes:
             print("** class doesn't exist **")
             return
         for k, v in storage.all().items():
@@ -82,37 +82,34 @@ class HBNBCommand(cmd.Cmd):
         print("** no instance found **")
 
     def do_all(self, line):
-        """ Prints all str representation of all instances """
-        split_line = shlex.split(line)
-        input_line = []
-        dict_json = models.storage.all()
-        if line:
-            try:
-                for key in models.storage.all():
-                    if split_line[0] == key.split('.')[0]:
-                        input_line.append(str(dict_json[key]))
-                print(n_list)
-            except Exception:
+        """Prints all string representation of all instances.
+        """
+        if input_line != "":
+            Entry = line_data.split(' ')
+            if Entry[0] not in storage.classes():
                 print("** class doesn't exist **")
+            else:
+                nl = [str(obj) for Entry, obj in storage.all().items()
+                      if type(obj).__name__ == content[0]]
+                print(nl)
         else:
-            for key in models.storage.all():
-                input_line.append(str(models.storage.all()[key]))
-            print(n_list)
+            nlist = [str(obj) for Entry, obj in storage.all().items()]
+            print(nlist)
 
     def do_update(self, line):
         """ Updates an instance based on the class name and id """
-        line = line.split()
-        if len(line) == 0:
+        input_line = input_line.split()
+        if len(input_line) == 0:
             print("** class name missing **")
             return False
-        if line[0] in classes:
-            if len(line) > 1:
-                key = line[0] + '.' + line[1]
-                if key in storage.all():
-                    if len(line) > 2:
-                        if len(line) > 3:
-                            setattr(storage.all()[key], line[2], line[3])
-                            storage.all()[key].save()
+        if input_line[0] in classes:
+            if len(input_line) > 1:
+                Entry = input_line[0] + '.' + input_line[1]
+                if Entry in storage.all():
+                    if len(input_line) > 2:
+                        if len(input_line) > 3:
+                            setattr(storage.all()[Entry], input_line[2], input_line[3])
+                            storage.all()[Entry].save()
                         else:
                             print("** value missing **")
                     else:
