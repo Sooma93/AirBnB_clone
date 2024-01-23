@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 div.container{
     max-width: 1000px;
     margin: 30px auto;
@@ -8,10 +9,17 @@ div.container{
 section.filters{
     background-color: white;
     height: 70;
+=======
+
+.filters {
+    background-color: white;
+    height: 70px;
+>>>>>>> refs/remotes/origin/master
     width: 100%;
     border: 1px solid #DDDDDD;
     border-radius: 4px;
     display: flex;
+<<<<<<< HEAD
     flex-direction: row-reverse;
     align-items: center;
 }
@@ -29,4 +37,22 @@ section.filters button{
 
 section.filters button:hover {
     opacity: 90%;
+=======
+    justify-content: flex-end;
+    align-items: center;
+}
+section.filters button {
+    background-color: #ff5a5f;
+    height: 48px;
+    width: 20%;
+    border: 0;
+    border-radius: 4px;
+    font-size: 18px;
+    color: #FFFFFF;
+    float: right;
+    margin: 11px 30px;
+}
+section.filters button:hover {
+    opacity: 0.9;
+>>>>>>> refs/remotes/origin/master
 }

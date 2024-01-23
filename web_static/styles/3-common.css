@@ -1,8 +1,16 @@
+<<<<<<< HEAD
 /* Body style */
+=======
+>>>>>>> refs/remotes/origin/master
 body {
     margin: 0;
     padding: 0;
     color: #484848;
+<<<<<<< HEAD
     font-family: Circular, "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 14px;
+=======
+    font-size: 14px;
+    font-family: Circular,"Helvetica Neue",Helvetica,Arial,sans-serif;
+>>>>>>> refs/remotes/origin/master
 }
